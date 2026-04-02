@@ -10,15 +10,22 @@
     "start": "node dist/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "express": "^4.21.0"
+    "drizzle-orm": "^0.45.2",
+    "express": "^4.21.0",
+    "postgres": "^3.4.8"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.0.0",
+    "drizzle-kit": "^0.31.10",
     "jest": "^30.3.0",
     "ts-jest": "^29.4.9",
     "tsx": "^4.19.0",
