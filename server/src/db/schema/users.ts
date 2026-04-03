@@ -22,10 +22,23 @@ export const usersRelations = relations(users, ({ one }) => ({
 }));
 
 export const insertUserSchema = createInsertSchema(users, {
-  name: z.string().min(3).max(50),
-  username: z.string().regex(/^[a-zA-Z0-9_-]+$/, 'Username can only contain letters, numbers, hyphens, and underscores'),
-  email: z.email(),
-  password: z.string().min(8),
+  name: z.string({ message: 'Name is required' })
+    .min(3, { message: 'Name must be at least 3 characters' })
+    .max(50, { message: 'Name must be at most 50 characters' }),
+  username: z.string({ message: 'Username is required' })
+    .min(3, { message: 'Username must be at least 3 characters' })
+    .max(50, { message: 'Username must be at most 50 characters' })
+    .regex(/^[a-zA-Z0-9_-]+$/, 'Username can only contain letters, numbers, hyphens, and underscores'),
+  email: z.string({ message: 'Email is required' })
+    .email({ message: 'Please enter a valid email address' }),
+  password: z.string({ message: 'Password is required' })
+    .min(8, { message: 'Password must be at least 8 characters' }),
+});
+
+export const loginSchema = z.object({
+  username: z.string({ message: 'Username is required' }),
+  password: z.string({ message: 'Password is required' }),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
+export type LoginUser = z.infer<typeof loginSchema>;

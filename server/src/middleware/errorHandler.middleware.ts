@@ -9,17 +9,6 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  if (err instanceof ZodError) {
-    const apiError = new ApiError('Validation error', 400, err);
-    return res.status(apiError.statusCode).json({
-      success: false,
-      data: {
-        message: apiError.message,
-        formErrors: mapZodErrors(err)
-      }
-    });
-  }
-
   if (err instanceof ApiError) {
     if (err.zodError) {
       return res.status(err.statusCode).json({
