@@ -1,6 +1,9 @@
 <p align="center">
-  <img src="aegis-light.png#gh-light-mode-only" alt="Aegis Logo" width="500">
-  <img src="aegis-dark.png#gh-dark-mode-only" alt="Aegis Logo" width="500">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="aegis-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="aegis-light.png">
+    <img src="aegis-light.png" alt="Aegis Logo" width="500">
+  </picture>
 </p>
 <p align="center">
   <em><b>Aegis</b> – Full-stack Instagram clone with React + ExpressJS + PostgreSQL + TailwindCSS</em>
