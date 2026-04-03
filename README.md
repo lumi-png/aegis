@@ -32,6 +32,8 @@
   <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest">
 </p>
 
+> ⚠️ **Work in Progress:** This project is still incomplete and under active development. Features may be missing or non-functional. **Live Demo** is currently unavailable
+
 ## Table of Contents
 
 - [Tech Stach](#tech-stack)
@@ -48,7 +50,12 @@
 - [Tech Stack](#tech-stack)
 - [License](#license)
 
----
+## What is this for?
+Hello there, Miguel here! I'm also known as lumi-dev, lumi-png, lumi-svg, and a dozen other names online. I am a 18 year old full-stack web developer based in the Philippines!
+
+Aegis is an imitation of the Instagram website (albeit not with all its features.) It is built with technologies common in modern web development such as **React**, **ExpressJS**, **PostgreSQL**, and **TailwindCSS**.
+
+This is not meant to be a serious application, though it is engineered as if it was one. This project is simply a demonstration of my own personal capabilities as a full-stack web developer in my quest to get employed. (*wish me luck!*)
 
 ## Tech Stack
 
