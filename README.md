@@ -40,11 +40,10 @@
     - [Database & Caching](#database--caching)
     - [Infrastructure](#infrastructure)
     - [Testing](#testing)
-  
 - [Deployment](#deployment)
     - [Production](#production)
     - [Development](#development)
-        - [Prerequisites](#prerequisites)
+      - [Prerequisites](#prerequisites)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [License](#license)
