@@ -8,6 +8,7 @@
 <p align="center">
   <em><b>Aegis</b> – Full-stack Instagram clone with React + ExpressJS + PostgreSQL + TailwindCSS</em>
 </p>
+
 <p align="center">
   <em>By Miguel R. Buccat (AKA lumi-dev)</em>
 </p>
@@ -19,6 +20,17 @@
 </p>
 
 ---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js">
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS">
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
+  <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest">
+</p>
 
 ## Table of Contents
 
@@ -42,28 +54,28 @@
 ## Tech Stack
 
 ### Frontend
-- **React** - UI library
-- **TailwindCSS** - Utility-first CSS framework
+- **[React](https://github.com/facebook/react)** - UI library
+- **[TailwindCSS](https://github.com/tailwindlabs/tailwindcss)** - Utility-first CSS framework
 
 ### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **TypeScript** - Type-safe JavaScript
-- **Zod** - Schema validation
-- **Drizzle ORM** - TypeScript ORM
-- **argon2** - Password hashing
+- **[Node.js](https://github.com/nodejs/node)** - Runtime environment
+- **[Express.js](https://github.com/expressjs/express)** - Web framework
+- **[TypeScript](https://github.com/microsoft/TypeScript)** - Type-safe JavaScript
+- **[Zod](https://github.com/colinhacks/zod)** - Schema validation
+- **[Drizzle ORM](https://github.com/drizzle-team/drizzle-orm)** - TypeScript ORM
+- **[argon2](https://github.com/ranisalt/node-argon2)** - Password hashing
 
 ### Database & Caching
-- **PostgreSQL** - Primary database
-- **Redis** - Caching
+- **[PostgreSQL](https://github.com/postgres/postgres)** - Primary database
+- **[Redis](https://github.com/redis/redis)** - Caching
 
 ### Infrastructure
-- **Docker** & **Docker Compose** - Containerization
-- **Nginx** - Reverse proxy
+- **[Docker](https://www.docker.com)** & **[Docker Compose](https://github.com/docker/compose)** - Containerization
+- **[Nginx](https://github.com/nginx/nginx)** - Reverse proxy
 
 ### Testing
-- **Jest** - Testing framework
-- **ts-jest** - TypeScript support for Jest
+- **[Jest](https://github.com/jestjs/jest)** - Testing framework
+- **[ts-jest](https://github.com/kulshekhar/ts-jest)** - TypeScript support for Jest
 
 ---
 
