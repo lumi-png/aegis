@@ -36,6 +36,7 @@
 
 ## Table of Contents
 
+- [What is this for?](#what-is-this-for)
 - [Tech Stach](#tech-stack)
     - [Frontend](#frontend)
     - [Backend](#backend)
