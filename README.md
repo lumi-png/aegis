@@ -55,7 +55,7 @@
 
 ### Database & Caching
 - **PostgreSQL** - Primary database
-- **Redis** - Caching & session storage
+- **Redis** - Caching
 
 ### Infrastructure
 - **Docker** & **Docker Compose** - Containerization
