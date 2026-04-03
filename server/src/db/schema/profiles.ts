@@ -5,7 +5,6 @@ import { users } from './users';
 export const profiles = pgTable('profiles', {
   id: uuid('id').defaultRandom().primaryKey(),
   userId: uuid('user_id').notNull().unique().references(() => users.id),
-  name: varchar('name', { length: 255 }).notNull(),
   profilePicture: varchar('profile_picture', { length: 2048 }),
   lastUpdated: timestamp('last_updated').defaultNow().notNull(),
 });

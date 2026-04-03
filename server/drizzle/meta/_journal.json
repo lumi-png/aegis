@@ -8,6 +8,20 @@
       "when": 1775170951406,
       "tag": "0000_public_storm",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1775172774147,
+      "tag": "0001_perfect_shadowcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1775172901076,
+      "tag": "0002_narrow_loa",
+      "breakpoints": true
     }
   ]
 }
