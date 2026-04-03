@@ -22,6 +22,13 @@
       "when": 1775172901076,
       "tag": "0002_narrow_loa",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1775177194226,
+      "tag": "0003_graceful_goblin_queen",
+      "breakpoints": true
     }
   ]
 }
