@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="aegis-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="aegis-light.png">
-    <img src="aegis-light.png" alt="Aegis Logo" width="500">
+    <source media="(prefers-color-scheme: dark)" srcset="aegis-light.png">
+    <source media="(prefers-color-scheme: light)" srcset="aegis-dark.png">
+    <img src="aegis-dark.png" alt="Aegis Logo" width="500">
   </picture>
 </p>
 <p align="center">
