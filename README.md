@@ -22,13 +22,48 @@
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
+- [Tech Stach](#tech-stack)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [Database & Caching](#database--caching)
+    - [Infrastructure](#infrastructure)
+    - [Testing](#testing)
+  
 - [Deployment](#deployment)
     - [Production](#production)
     - [Development](#development)
         - [Prerequisites](#prerequisites)
 - [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
 - [License](#license)
+
+---
+
+## Tech Stack
+
+### Frontend
+- **React** - UI library
+- **TailwindCSS** - Utility-first CSS framework
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **TypeScript** - Type-safe JavaScript
+- **Zod** - Schema validation
+- **Drizzle ORM** - TypeScript ORM
+- **argon2** - Password hashing
+
+### Database & Caching
+- **PostgreSQL** - Primary database
+- **Redis** - Caching & session storage
+
+### Infrastructure
+- **Docker** & **Docker Compose** - Containerization
+- **Nginx** - Reverse proxy
+
+### Testing
+- **Jest** - Testing framework
+- **ts-jest** - TypeScript support for Jest
 
 ---
 
