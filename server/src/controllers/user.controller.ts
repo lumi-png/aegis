@@ -7,6 +7,7 @@ import { ApiError } from "../utils/error/ApiError";
 import { cache } from "../utils/cache";
 import { UserResponse } from "../utils/types";
 import authService from "../services/auth.service";
+import userService from "../services/user.service";
 
 const getUsers = async (req: Request, res: Response) => {
 
@@ -24,27 +25,13 @@ const getUserById = async (req: Request, res: Response, next: NextFunction) => {
     });
   }
 
-  const user = await db
-    .select({
-      id: users.id,
-      name: users.name,
-      username: users.username,
-      registeredOn: users.registeredOn,
-      lastSeenOn: users.lastSeenOn,
-    })
-    .from(users)
-    .where(eq(users.id, id))
-    .limit(1);
+  const user = await userService.getUser("id", id);
 
-  if (user.length === 0) {
-    throw new ApiError("User not found", 404);
-  }
-
-  await cache.set(cacheKey, user[0]);
+  await cache.set(cacheKey, user);
 
   return res.status(200).json({
     success: true,
-    data: user[0],
+    data: user,
   });
 }
 
@@ -60,27 +47,13 @@ const getUserByUsername = async (req: Request, res: Response, next: NextFunction
     });
   }
 
-  const user = await db
-    .select({
-      id: users.id,
-      name: users.name,
-      username: users.username,
-      registeredOn: users.registeredOn,
-      lastSeenOn: users.lastSeenOn,
-    })
-    .from(users)
-    .where(eq(users.username, username))
-    .limit(1);
+  const user = await userService.getUser("username", username);
 
-  if (user.length === 0) {
-    throw new ApiError("User not found", 404);
-  }
-
-  await cache.set(cacheKey, user[0]);
+  await cache.set(cacheKey, user);
 
   return res.status(200).json({
     success: true,
-    data: user[0],
+    data: user,
   });
 }
 
@@ -127,22 +100,11 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 
   const { name, username, email, password } = validationResult.data;
   
-  const hashedPassword = await argon2.hash(password);
-
-  const [newUser] = await db
-    .insert(users)
-    .values({ name, username, email, password: hashedPassword })
-    .returning({
-      id: users.id,
-      name: users.name,
-      username: users.username,
-      registeredOn: users.registeredOn,
-      lastSeenOn: users.lastSeenOn,
-    });
+  const user = await userService.createUser(name, username, email, password);
 
   return res.status(201).json({
     success: true,
-    data: newUser,
+    data: user
   });
 }
 
@@ -196,23 +158,13 @@ const authUser = async (req: Request, res: Response, next: NextFunction) => {
 
   const { username } = validationResult.data;
 
-  const user = await db
-    .select({
-      id: users.id,
-      name: users.name,
-      username: users.username,
-      registeredOn: users.registeredOn,
-      lastSeenOn: users.lastSeenOn,
-    })
-    .from(users)
-    .where(eq(users.username, username))
-    .limit(1);
+  const user = await userService.getUser("username", username);
 
   return res.status(200).json({
     success: true,
     data: {
-      sessionToken: (await authService.createSession(user[0].id)).token,
-      user: user[0]
+      sessionToken: (await authService.createSession(user.id)).token,
+      user: user
     }
   });
 }

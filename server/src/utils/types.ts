@@ -2,7 +2,7 @@ export type UserResponse = {
   id: string;
   name: string;
   username: string;
-  registeredOn: Date | null;
+  registeredOn: Date;
   lastSeenOn: Date | null;
 };
 
