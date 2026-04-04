@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Landing from "./routes/Landing";
+import LandingView from "./views/LandingView";
 import Toast from "./components/Toast";
 import { useToast } from "./hooks/useToast";
 import api from "./lib/api";
-import Login from "./routes/Login";
-import Register from "./routes/Register";
-import NotFound from "./routes/errors/NotFound";
+import LoginView from "./views/LoginView";
+import RegisterView from "./views/RegisterView";
+import NotFoundView from "./views/errors/NotFoundView";
 
 function StatusChecker() {
   const { info, error } = useToast();
@@ -36,10 +36,10 @@ function App() {
       <StatusChecker />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Landing />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
+          <Route index element={<LandingView />} />
+          <Route path="login" element={<LoginView />} />
+          <Route path="register" element={<RegisterView />} />
+          <Route path="*" element={<NotFoundView />} />
         </Route>
       </Routes>
       <Toast />

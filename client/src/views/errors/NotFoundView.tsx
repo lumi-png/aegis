@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Home, ArrowLeft, Frown } from "lucide-react";
 import FlowyLines from "../../components/FlowyLines";
 
-const NotFound = () => {
+const NotFoundView = () => {
   usePageTitle("Page Not Found");
 
   return (
@@ -45,4 +45,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundView;

@@ -2,7 +2,7 @@ import { usePageTitle } from "../hooks/usePageTitle";
 import { Link } from "react-router-dom";
 import FlowyLines from "../components/FlowyLines";
 
-const Landing = () => {
+const LandingView = () => {
   usePageTitle("Landing");
 
   return (
@@ -30,4 +30,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingView;
