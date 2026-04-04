@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="navbar bg-base-100 shadow-md px-4 relative">
+      <header className="navbar bg-base-100 shadow-md px-4 md:px-48 relative">
         {/* Mobile hamburger */}
         <div className="flex-none md:hidden">
           <button className="btn btn-ghost btn-square" onClick={() => setMobileOpen(!mobileOpen)}>
