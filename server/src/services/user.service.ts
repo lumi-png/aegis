@@ -60,6 +60,13 @@ const getUser = async (searchParam: "id" | "username", searchValue: string) => {
   return user;
 }
 
+const updateLastSeen = async (userId: string) => {
+  await db
+    .update(users)
+    .set({ lastSeenOn: new Date() })
+    .where(eq(users.id, userId));
+}
+
 const createUser = async (name: string, username: string, email: string, password: string): Promise<UserResponse> => {
   const hashedPassword = await argon2.hash(password);
 
@@ -77,4 +84,4 @@ const createUser = async (name: string, username: string, email: string, passwor
   return user;
 }
 
-export default { getUser, createUser };
+export default { getUser, createUser, updateLastSeen };

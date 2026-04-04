@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import authService from '../services/auth.service';
+import userService from '../services/user.service';
 import { ApiError } from '../utils/error/ApiError';
 
 export const authGuard = async (req: Request, res: Response, next: NextFunction) => {
@@ -14,6 +15,7 @@ export const authGuard = async (req: Request, res: Response, next: NextFunction)
   try {
     const user = await authService.validateSession(token);
     req.user = user;
+    await userService.updateLastSeen(user.id);
     next();
   } catch (error) {
     next(error);
