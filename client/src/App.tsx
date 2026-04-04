@@ -7,7 +7,7 @@ import { useToast } from "./hooks/useToast";
 import api from "./lib/api";
 
 function StatusChecker() {
-  const { info } = useToast();
+  const { info, error } = useToast();
 
   useEffect(() => {
     const checkStatus = async () => {
@@ -16,8 +16,8 @@ function StatusChecker() {
         if (response.data.success && response.data.data.isDevelopment) {
           info("Woah! You're seeing the magic in progress, you're in development mode!");
         }
-      } catch (error) {
-        // Silently fail - status check is informational
+      } catch (err) {
+        error("Unable to connect to API");
       }
     };
 
