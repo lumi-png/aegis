@@ -1,11 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import * as argon2 from "node-argon2";
-import { eq } from "drizzle-orm";
-import { db } from "../db/index";
-import { users, insertUserSchema, loginSchema } from "../db/schema";
 import { ApiError } from "../utils/error/ApiError";
 import authService from "../services/auth.service";
 import userService from "../services/user.service";
+import { createUserSchema } from "../utils/validators/createUser.validator";
+import { authUserSchema } from "../utils/validators/authUser.validator";
 
 const getUsers = async (req: Request, res: Response) => {
 
@@ -31,36 +29,6 @@ const getUserByUsername = async (req: Request, res: Response, next: NextFunction
   });
 }
 
-const createUserSchema = insertUserSchema.superRefine(async (data, ctx) => {
-  const existingUser = await db
-    .select({ id: users.id })
-    .from(users)
-    .where(eq(users.username, data.username))
-    .limit(1);
-
-  if (existingUser.length > 0) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Username is already taken",
-      path: ["username"],
-    });
-  }
-
-  const existingEmail = await db
-    .select({ id: users.id })
-    .from(users)
-    .where(eq(users.email, data.email))
-    .limit(1);
-
-  if (existingEmail.length > 0) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Email is already registered",
-      path: ["email"],
-    });
-  }
-});
-
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const validationResult = await createUserSchema.safeParseAsync(req.body);
 
@@ -81,43 +49,6 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     data: user
   });
 }
-
-const authUserSchema = loginSchema.superRefine(async (data, ctx) => {
-  const user = await db
-    .select({ password: users.password })
-    .from(users)
-    .where(eq(users.username, data.username))
-    .limit(1);
-
-  if (user.length === 0) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Invalid username or password",
-      path: ["username"],
-    });
-    ctx.addIssue({
-      code: "custom",
-      message: "Invalid username or password",
-      path: ["password"],
-    });
-    return;
-  }
-
-  const isPasswordValid = await argon2.verify({ hash: user[0].password, password: data.password });
-
-  if (!isPasswordValid) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Invalid username or password",
-      path: ["username"],
-    });
-    ctx.addIssue({
-      code: "custom",
-      message: "Invalid username or password",
-      path: ["password"],
-    });
-  }
-});
 
 const authUser = async (req: Request, res: Response, next: NextFunction) => {
   const validationResult = await authUserSchema.safeParseAsync(req.body);
