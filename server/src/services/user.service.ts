@@ -5,10 +5,20 @@ import { db } from "../db/index";
 import { users } from "../db/schema";
 import { ApiError } from "../utils/error/ApiError";
 import { UserResponse } from "../utils/types";
+import { cache } from "../utils/cache";
 
 const getUser = async (searchParam: "id" | "username", searchValue: string) => {
+  const cacheKey = `user:${searchParam}:${searchValue}`;
+
+  const cachedUser = await cache.get<UserResponse>(cacheKey);
+  if (cachedUser) {
+    return cachedUser;
+  }
+
+  let user: UserResponse;
+
   if (searchParam === "id") {
-    const user = await db
+    const result = await db
       .select({
         id: users.id,
         name: users.name,
@@ -20,13 +30,13 @@ const getUser = async (searchParam: "id" | "username", searchValue: string) => {
       .where(eq(users.id, searchValue))
       .limit(1);
 
-    if (user.length === 0) {
+    if (result.length === 0) {
       throw new ApiError("User not found", 404);
     }
 
-    return user[0];
+    user = result[0];
   } else {
-    const user = await db
+    const result = await db
       .select({
         id: users.id,
         name: users.name,
@@ -38,12 +48,16 @@ const getUser = async (searchParam: "id" | "username", searchValue: string) => {
       .where(eq(users.username, searchValue))
       .limit(1);
 
-    if (user.length === 0) {
+    if (result.length === 0) {
       throw new ApiError("User not found", 404);
     }
 
-    return user[0];
+    user = result[0];
   }
+
+  await cache.set(cacheKey, user);
+
+  return user;
 }
 
 const createUser = async (name: string, username: string, email: string, password: string): Promise<UserResponse> => {

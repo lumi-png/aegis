@@ -4,8 +4,6 @@ import { eq } from "drizzle-orm";
 import { db } from "../db/index";
 import { users, insertUserSchema, loginSchema } from "../db/schema";
 import { ApiError } from "../utils/error/ApiError";
-import { cache } from "../utils/cache";
-import { UserResponse } from "../utils/types";
 import authService from "../services/auth.service";
 import userService from "../services/user.service";
 
@@ -15,19 +13,7 @@ const getUsers = async (req: Request, res: Response) => {
 
 const getUserById = async (req: Request, res: Response, next: NextFunction) => {
   const id = req.params.id as string;
-  const cacheKey = `user:id:${id}`;
-
-  const cachedUser = await cache.get<UserResponse>(cacheKey);
-  if (cachedUser) {
-    return res.status(200).json({
-      success: true,
-      data: cachedUser,
-    });
-  }
-
   const user = await userService.getUser("id", id);
-
-  await cache.set(cacheKey, user);
 
   return res.status(200).json({
     success: true,
@@ -37,19 +23,7 @@ const getUserById = async (req: Request, res: Response, next: NextFunction) => {
 
 const getUserByUsername = async (req: Request, res: Response, next: NextFunction) => {
   const username = req.params.username as string;
-  const cacheKey = `user:username:${username}`;
-
-  const cachedUser = await cache.get<UserResponse>(cacheKey);
-  if (cachedUser) {
-    return res.status(200).json({
-      success: true,
-      data: cachedUser,
-    });
-  }
-
   const user = await userService.getUser("username", username);
-
-  await cache.set(cacheKey, user);
 
   return res.status(200).json({
     success: true,
