@@ -29,6 +29,13 @@
       "when": 1775177194226,
       "tag": "0003_graceful_goblin_queen",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1775274832232,
+      "tag": "0004_fancy_ultragirl",
+      "breakpoints": true
     }
   ]
 }
