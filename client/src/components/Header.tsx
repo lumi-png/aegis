@@ -33,11 +33,11 @@ const Header = () => {
 
         {/* Desktop auth buttons */}
         <div className="flex-none gap-2 hidden md:flex">
-          <Link to="/" className="btn btn-sm btn-primary gap-1">
+          <Link to="/login" className="btn btn-sm btn-primary gap-1">
             <LogIn size={16} />
             Login
           </Link>
-          <Link to="/" className="btn btn-sm btn-secondary gap-1">
+          <Link to="/register" className="btn btn-sm btn-secondary gap-1">
             <UserPlus size={16} />
             Register
           </Link>
@@ -52,11 +52,11 @@ const Header = () => {
             Home
           </Link>
           <hr />
-          <Link to="/" className="btn btn-ghost gap-2 justify-start" onClick={() => setMobileOpen(false)}>
+          <Link to="/login" className="btn btn-ghost gap-2 justify-start" onClick={() => setMobileOpen(false)}>
             <LogIn size={16} />
             Login
           </Link>
-          <Link to="/" className="btn btn-ghost gap-2 justify-start" onClick={() => setMobileOpen(false)}>
+          <Link to="/register" className="btn btn-ghost gap-2 justify-start" onClick={() => setMobileOpen(false)}>
             <UserPlus size={16} />
             Register
           </Link>

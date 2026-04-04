@@ -5,6 +5,9 @@ import Landing from "./routes/Landing";
 import Toast from "./components/Toast";
 import { useToast } from "./hooks/useToast";
 import api from "./lib/api";
+import Login from "./routes/Login";
+import Register from "./routes/Register";
+import NotFound from "./routes/errors/NotFound";
 
 function StatusChecker() {
   const { info, error } = useToast();
@@ -34,6 +37,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Landing />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Toast />

@@ -18,7 +18,7 @@ const Landing = () => {
               Full-stack Twitter (X) clone built with React + ExpressJS + PostgreSQL + TailwindCSS.
             </p>
             <div className="flex flex-col items-end gap-3">
-              <button className="btn btn-lg bg-white text-purple-600 hover:bg-purple-100 border-none">Join now!</button>
+              <Link to="/register" className="btn btn-lg bg-white text-purple-600 hover:bg-purple-100 border-none">Join now!</Link>
               <Link to="/login" className="link link-hover text-sm text-purple-200 hover:text-white">
                 I already have an account
               </Link>
