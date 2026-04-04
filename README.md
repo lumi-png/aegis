@@ -6,7 +6,7 @@
   </picture>
 </p>
 <p align="center">
-  <em><b>Aegis</b> – Full-stack Instagram clone with React + ExpressJS + PostgreSQL + TailwindCSS</em>
+  <em><b>Aegis</b> – Full-stack Instagram clone built with React + ExpressJS + PostgreSQL + TailwindCSS</em>
 </p>
 
 <p align="center">
