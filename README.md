@@ -6,7 +6,7 @@
   </picture>
 </p>
 <p align="center">
-  <em><b>Aegis</b> – Full-stack Instagram clone built with React + ExpressJS + PostgreSQL + TailwindCSS</em>
+  <em><b>Aegis</b> – Full-stack Twitter (X) clone built with React + ExpressJS + PostgreSQL + TailwindCSS</em>
 </p>
 
 <p align="center">
@@ -54,7 +54,7 @@
 ## What is this for?
 Hello there, Miguel here! I'm also known as lumi-dev, lumi-png, lumi-svg, and a dozen other names online. I am a 18 year old full-stack web developer based in the Philippines!
 
-Aegis is an imitation of the Instagram website (albeit not with all its features.) It is built with technologies common in modern web development such as **React**, **ExpressJS**, **PostgreSQL**, and **TailwindCSS**.
+Aegis is an imitation of the Twitter/X website (albeit not with all its features.) It is built with technologies common in modern web development such as **React**, **ExpressJS**, **PostgreSQL**, and **TailwindCSS**.
 
 This is not meant to be a serious application, though it is engineered as if it was one. This project is simply a demonstration of my own personal capabilities as a full-stack web developer in my quest to get employed. (*wish me luck!*)
 
